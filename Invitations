@@ -1,56 +1,54 @@
-<html>
+<apex:page>
 
-<script type='text/javascript' src='https://c.la2s-core1.sfdc-vwfla6.salesforceliveagent.com/content/g/js/57.0/deployment.js'></script>
-<script type='text/javascript'>
-liveagent.init('https://d.la2s-core1.sfdc-vwfla6.salesforceliveagent.com/chat', '5728s000001tdbF', '00D8s000001zkq9');
-</script>
-
-<div id="liveagent_button_online_5738s000000Kjc5" style="display:none;"><span style="cursor: pointer; width: 100px; height: 20px; padding: 5px;" onclick="liveagent.startChat('5738s000000Kjc5')">Start Chat</span><span style="cursor: pointer; width: 100px; height: 20px; padding: 5px;" onclick="liveagent.rejectChat('5738s000000Kjc5')">Reject Chat</span></div>
-
-<!-- Start of Invitations -->
-<div class="embeddedServiceInvitation" id="snapins_invite" aria-live="assertive" role="dialog" aria-atomic="true">
-    <div class="embeddedServiceInvitationHeader" aria-labelledby="snapins_titletext" aria-describedby="snapins_bodytext">
-        <img id="embeddedServiceAvatar">
-        <span class="embeddedServiceTitleText" id="snapins_titletext">Need help?</span>
-        <button type="button" id="closeInvite" class="embeddedServiceCloseIcon" aria-label="Exit invitation">&times;</button>
-    </div>
-    <div class="embeddedServiceInvitationBody">
-        <p id="snapins_bodytext">How can we help you?</p>
-    </div>
-    <div class="embeddedServiceInvitationFooter" aria-describedby="snapins_bodytext">
-        <button type="button" class="embeddedServiceActionButton" id="rejectInvite">Close</button>
-        <button type="button" class="embeddedServiceActionButton" id="acceptInvite">Start Chat</button>
-    </div>
+<!-- This section creates the div with the UI for chat invitation whose id is 573D01234567890 -->
+<!-- For this usage, the "Animation" type of this invitation should be set to "Custom",
+otherwise two invitations will appear (the Salesforce-provided one and this custom one). -->
+<div id="liveagent_invite_button_573D01234567890" style="display: none; position: fixed; border: 2px solid darkblue; border-radius: 5px; background-color: lightblue; height: 100px; width: 200px;">
+	<!-- Creates an "X" option to reject or close the invitation if it's offered  -->
+	<div style="cursor: pointer; padding: 5px; right: 0px; position: absolute; color: darkred; font-weight: bold;" onclick="liveagent.rejectChat('573D01234567890')">X</div>
+<!-- Provides the Start Chat option for the customer to accept or start the chat for the invitation  -->
+<div style="cursor: pointer; top: 42px; left: 65px; position: absolute;font-weight: bold; font-size: 16px;" onclick="liveagent.startChat('573D01234567890')">Start Chat</div>
 </div>
 
-<style type='text/css'>
-    #snapins_invite { background-color: #FFFFFF; font-family: "Salesforce Sans", sans-serif; overflow: visible; border-radius: 8px; visibility: hidden; }
-    .embeddedServiceInvitation { background-color: transparent; max-width: 290px; max-height: 210px; -webkit-box-shadow: 0 7px 12px rgba(0,0,0,0.28); -moz-box-shadow: 0 7px 12px rgba(0,0,0,0.28); box-shadow: 0 7px 12px rgba(0,0,0,0.28); }
-    @media only screen and (min-width: 48em) { /*mobile*/ .embeddedServiceInvitation { max-width: 332px; max-height: 210px; } }
-    .embeddedServiceInvitation > .embeddedServiceInvitationHeader { width: inherit; height: 32px; line-height: 32px; padding: 10px; color: #FFFFFF; background-color: #222222; overflow: initial; display: flex; justify-content: space-between; align-items: stretch; border-top-left-radius: 8px; border-top-right-radius: 8px; }
-    .embeddedServiceInvitationHeader #embeddedServiceAvatar { width: 32px; height: 32px; border-radius: 50%; }
-    .embeddedServiceInvitationHeader .embeddedServiceTitleText { font-size: 18px; color: #FFFFFF; overflow: hidden; word-wrap: normal; white-space: nowrap; text-overflow: ellipsis; align-self: stretch; flex-grow: 1; max-width: 100%; margin: 0 12px; }
-    .embeddedServiceInvitationHeader .embeddedServiceCloseIcon { border: none; border-radius: 3px; cursor: pointer; position: relative; bottom: 3%; background-color: transparent; width: 32px; height: 32px; font-size: 23px; color: #FFFFFF; }
-    .embeddedServiceInvitationHeader .embeddedServiceCloseIcon:focus { outline: none; }
-    .embeddedServiceInvitationHeader .embeddedServiceCloseIcon:focus::before { content: " "; position: absolute; top: 11%; left: 7%; width: 85%; height: 85%; background-color: rgba(255, 255, 255, 0.2); border-radius: 4px; pointer-events: none; }
-    .embeddedServiceInvitationHeader .embeddedServiceCloseIcon:active, .embeddedServiceCloseIcon:hover { background-color: #FFFFFF; color: rgba(0,0,0,0.7); opacity: 0.7; }
-    .embeddedServiceInvitation > .embeddedServiceInvitationBody { background-color: #FFFFFF; max-height: 110px; min-width: 260px; margin: 0 8px; font-size: 14px; line-height: 20px; overflow: auto; }
-    .embeddedServiceInvitationBody p { color: #333333; padding: 8px; margin: 12px 0; }
-    .embeddedServiceInvitation > .embeddedServiceInvitationFooter { width: inherit; color: #FFFFFF; text-align: right; background-color: #FFFFFF; padding: 10px; max-height: 50px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; }
-    .embeddedServiceInvitationFooter > .embeddedServiceActionButton { font-size: 14px; max-height: 40px; border: none; border-radius: 4px; padding: 10px; margin: 4px; text-align: center; text-decoration: none; display: inline-block; cursor: pointer; }
-    .embeddedServiceInvitationFooter > #acceptInvite { background-color: #005290; color: #FFFFFF; }
-    .embeddedServiceInvitationFooter > #rejectInvite { background-color: #FFFFFF; color: #005290; }
-</style>
+<!-- Chat Deployment Code that makes chat available -->
+<script type='text/javascript' src='https://c.la2s-core1.sfdc-vwfla6.salesforceliveagent.com/content/g/js/57.0/deployment.js'></script>
 
 <script type='text/javascript'>
-    (function() {
-        document.getElementById('closeInvite').onclick = function() { embedded_svc.inviteAPI.inviteButton.rejectInvite(); };
-        document.getElementById('rejectInvite').onclick = function() { embedded_svc.inviteAPI.inviteButton.rejectInvite(); }; // use this API call to reject invitations
-        document.getElementById('acceptInvite').onclick = function() { embedded_svc.inviteAPI.inviteButton.acceptInvite(); }; // use this API call to start chat from invitations
-        document.addEventListener('keyup', function(event) { if (event.keyCode == 27) { embedded_svc.inviteAPI.inviteButton.rejectInvite(); }})
-    })();
+	// Creates the callback function used for the Chat invitation to present it or not based on availability and the customer's interaction with it 
+	function buttonCallback(e) {
+	
+		// When the chat invitation is online (i.e. at least one available, skilled agent), display it at position top 200px and left 300px 		if (e == liveagent.BUTTON_EVENT.BUTTON_AVAILABLE) {
+		document.getElementById('liveagent_invite_button_5738s000000LNsr').style.display = '';
+		document.getElementById('liveagent_invite_button_5738s000000LNsr').style.left = '300px';
+		document.getElementById('liveagent_invite_button_5738s000000LNsr').style.top = '200px';
+		}
+		
+		// When the chat invitation is offline, don't display it 
+		if (e == liveagent.BUTTON_EVENT.BUTTON_UNAVAILABLE) {
+		document.getElementById('liveagent_invite_button_5738s000000LNsr').style.display = 'none';
+		}
+		
+		// When the chat invitation is accepted, stop displaying it 		if (e == liveagent.BUTTON_EVENT.BUTTON_ACCEPTED) {
+		document.getElementById('liveagent_invite_button_5738s000000LNsr').style.display = 'none';
+		}
+		
+		// When the chat invitation is rejected, stop displaying it 		if (e == liveagent.BUTTON_EVENT.BUTTON_REJECTED) {
+		document.getElementById('liveagent_invite_button_5738s000000LNsr').style.display = 'none';
+		}
+	}
+
+	// Registers the function buttonCallback() above as the callback for the chat invitation whose id is 573D01234567890 	liveagent.addButtonEventHandler('573D01234567890', buttonCallback);
+
+	// Let's say there is data available in JavaScript that you want to use in a custom sending rule.
+	var shoppingCartValue = 123.45;
+	// To pass this data so it can be used in Sending Rules in Salesforce setup, call setCustomVariable.
+	liveagent.setCustomVariable('shoppingCartValue', shoppingCartValue);
+
+	// Chat deployment code that initializes chat for the deployment whose id is 572D01234567890 and org is 00DD01234567890 
+	liveagent.init('https://d.la2s-core1.sfdc-vwfla6.salesforceliveagent.com/chat', '5728s000001tdbF', '00D8s000001zkq9');
+
+	// Enable Chat advanced logging to be available through the Browser's Developer Console 
+	liveagent.enableLogging();
 </script>
-<!-- End of Invitations -->
 
-
-</html>
+</apex:page>
